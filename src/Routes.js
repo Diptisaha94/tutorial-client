@@ -1,10 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "./Blog";
+import Catagory from "./Catagory";
 import Courses from "./Courses";
 import Faq from "./Faq";
 import Login from "./Login";
 import Main from "./Main";
 import Register from "./Register";
+import Singlecourses from "./Singlecourses";
 
 const router = createBrowserRouter([
     {
@@ -21,7 +23,16 @@ const router = createBrowserRouter([
             },
             {
                 path:"/courses",
-                element:<Courses></Courses>
+                element:<Courses></Courses>,
+                children:[
+                    {
+                        path:"/courses/:id",
+                        element:<Singlecourses></Singlecourses>,
+                        loader: ({params}) => {
+                            return fetch(`http://localhost:5000/catagory/courses/${params.id}`)
+                          },
+                    },
+                ]
             },
             {
                 path:"/faq",
