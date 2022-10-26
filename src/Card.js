@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Card = ({card}) => {
@@ -11,7 +10,7 @@ const Card = ({card}) => {
   <div className="card-body">
     {/* <h5 className="card-title">{card.title}</h5> */}
   </div>
-  <Link className='btn btn-primary'>Start Tutoial</Link>
+  <Link to={`/detail/course/${card._id}`} className='btn btn-primary'>Start Tutoial</Link>
 </div>
         </div>
     );

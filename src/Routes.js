@@ -6,6 +6,8 @@ import Home from "./Home";
 import Login from "./Login";
 import Main from "./Main";
 import Onecourses from "./Onecourses";
+import Primeum from "./Primeum";
+import Privateroute from "./Privateroute";
 import Register from "./Register";
 import Singlecourses from "./Singlecourses";
 
@@ -42,6 +44,10 @@ const router = createBrowserRouter([
             {
                 path:"/faq",
                 element:<Faq></Faq>
+            },
+            {
+                path:"/premium",
+                element:<Privateroute><Primeum></Primeum></Privateroute>
             },
             {
                 path:"/detail/course/:id",
