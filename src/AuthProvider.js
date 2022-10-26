@@ -22,7 +22,17 @@ const AuthProvider = ({children}) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth,email,password);
     }
-    
+    const updateUserName=(name,photo)=>{
+        updateProfile(auth.currentUser, {
+            displayName: name, photoURL: photo
+          }).then(() => {
+            // Profile updated!
+            // ...
+          }).catch((error) => {
+            // An error occurred
+            // ...
+          });
+    }
     useEffect(()=>{
         const unsuscribe=onAuthStateChanged(auth,(currentUser)=>{
             setUser(currentUser);
@@ -32,7 +42,7 @@ const AuthProvider = ({children}) => {
             unsuscribe();
         }
     },[]);
-    const Authinfo = {user,providerLogin,loading,logOut,registerEmailPassword,updateUserName};
+    const Authinfo = {user,providerLogin,loading,logOut,registerEmailPassword,updateUserName,setUser,setLoading};
     return (
            <AuthContext.Provider value={Authinfo}>
             {children}

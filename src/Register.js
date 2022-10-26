@@ -5,7 +5,7 @@ import { AuthContext } from './AuthProvider';
 
 const Register = () => {
   const registerContext =useContext(AuthContext);
-  const {registerEmailPassword}=registerContext;
+  const {registerEmailPassword,updateUserName,setLoading}=registerContext;
   const [userInfo,setUserInfo]=useState({
     email:"",
     password:"",
@@ -16,26 +16,19 @@ const Register = () => {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
+    const form =e.target;
+    const name = e.target.name.value;
+    const photo = e.target.photo.value;
     registerEmailPassword(userInfo.email, userInfo.password)
       .then((result) => {
-        updateUserName();
+        updateUserName(name,photo);
         console.log(result);
+        form.reset();
       })
       .catch((err) => {
         console.log(err);
       });
   };
-  const updateUserName=(name,photo)=>{
-    updateProfile(auth.currentUser, {
-        displayName: name, photoURL: photo
-      }).then(() => {
-        // Profile updated!
-        // ...
-      }).catch((error) => {
-        // An error occurred
-        // ...
-      });
-}
   const handleEmailChange = (e) => {
     const email = e.target.value;
 
