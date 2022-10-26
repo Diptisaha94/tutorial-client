@@ -5,11 +5,16 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { useContext } from 'react';
 import { AuthContext } from './AuthProvider';
-import { Image } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 
 const Header = () => {
   const userInfo = useContext(AuthContext);
-  const {user}=userInfo;
+  const {user,logOut}=userInfo;
+  const handleSignOut =()=>{
+    logOut()
+    .then()
+    .catch()
+  }
     return (
       <Navbar bg="light" expand="lg">
       <Container>
@@ -25,6 +30,7 @@ const Header = () => {
             <span>{user?.photoURL ?<Image style={{height:'40px',borderRadius:"50%"}} src={user.photoURL}></Image>:
             "no image"
             }</span>
+            <Button onClick={handleSignOut}>Sign Out</Button>
           </Nav>
         </Navbar.Collapse>
       </Container>

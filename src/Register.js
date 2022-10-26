@@ -1,22 +1,80 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { AuthContext } from './AuthProvider';
 
 const Register = () => {
+  const registerContext =useContext(AuthContext);
+  const {registerEmailPassword}=registerContext;
+  const [userInfo,setUserInfo]=useState({
+    email:"",
+    password:"",
+  })
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+  });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    registerEmailPassword(userInfo.email, userInfo.password)
+      .then((result) => {
+        updateUserName();
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const updateUserName=(name,photo)=>{
+    updateProfile(auth.currentUser, {
+        displayName: name, photoURL: photo
+      }).then(() => {
+        // Profile updated!
+        // ...
+      }).catch((error) => {
+        // An error occurred
+        // ...
+      });
+}
+  const handleEmailChange = (e) => {
+    const email = e.target.value;
+
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+      setErrors({ ...errors, email: "Please provide a valid email" });
+      setUserInfo({ ...userInfo, email: "" });
+    } else {
+      setErrors({ ...errors, email: "" });
+      setUserInfo({ ...userInfo, email: e.target.value });
+    }
+  };
+  const handlePasswordChange = (e) => {
+    const password = e.target.value;
+    const lengthError = password.length < 8;
+
+    if (lengthError) {
+      setErrors({ ...errors, password: "Must be at least 8 characters" });
+      setUserInfo({ ...userInfo, password: "" });
+    }
+     else {
+      setErrors({ ...errors, password: "" });
+      setUserInfo({ ...userInfo, password: e.target.value });
+    }
+  };
     return (
-        <div>
-            <Form>
+        <div className='container'>
+            <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicName">
-        <Form.Label>Your Name</Form.Label>
-        <Form.Control type="text" placeholder="Your Name" />
+        <Form.Label>Full Name</Form.Label>
+        <Form.Control type="text" placeholder="Full Name" name="name"/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicUrl">
         <Form.Label>Photo Url</Form.Label>
-        <Form.Control type="url" placeholder="Your Photo" />
+        <Form.Control type="url" placeholder="Your Photo" name="photo" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Control onChange={handleEmailChange} type="email" name='email' placeholder="Enter email" />
+        {errors.email && <p>{errors.email}</p>}
         <Form.Text className="text-muted">
           We'll never share your email with anyone else.
         </Form.Text>
@@ -24,7 +82,8 @@ const Register = () => {
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
+        <Form.Control onChange={handlePasswordChange} type="password" name='password' placeholder="Password" />
+        {errors.password && <p>{errors.password}</p>}
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Check me out" />
