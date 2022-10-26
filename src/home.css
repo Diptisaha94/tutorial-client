@@ -1,0 +1,8 @@
+.banner-img{
+    position: relative;
+    background-image: url(./images/edu1.jpg);
+    background-color: rgba(0, 0, 0, 0.651);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

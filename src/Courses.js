@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Outlet, useLoaderData } from 'react-router-dom';
 import Catagory from './Catagory';
+import Popular from './Popular';
 
 
 const Courses = () => {
@@ -12,7 +13,8 @@ const Courses = () => {
     return (
         <div className='mt-5'>
            <Container>
-            <Row>
+            <Popular></Popular>
+            <Row className='mt-5'>
                 <Col lg="4">
             <Catagory></Catagory>
                 </Col>

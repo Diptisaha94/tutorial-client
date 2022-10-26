@@ -6,7 +6,7 @@ const Singlecourses = () => {
     const courseCard=useLoaderData();
     console.log(courseCard);
     return (
-        <div className='row'>
+        <div className='row gy-4'>
             {
                courseCard.map((card)=><Card key={card._id} card={card}></Card>) 
             }

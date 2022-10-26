@@ -5,7 +5,7 @@ import { AuthContext } from './AuthProvider';
 
 const Register = () => {
   const registerContext =useContext(AuthContext);
-  const {registerEmailPassword,updateUserName,setLoading}=registerContext;
+  const {registerEmailPassword,updateUserName}=registerContext;
   const [userInfo,setUserInfo]=useState({
     email:"",
     password:"",
@@ -55,6 +55,7 @@ const Register = () => {
   };
     return (
         <div className='container'>
+          <h3 className='text-primary text-center mt-5 mb-4'>Registration Form</h3>
             <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label>Full Name</Form.Label>
