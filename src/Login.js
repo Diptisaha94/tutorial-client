@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useLocation, useNavigate} from 'react-router-dom';
 import { AuthContext } from './AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
@@ -50,6 +52,7 @@ providerLogin(githubProvider)
     providerLogin(googleProvider)
     .then((result) => {
       const user = result.user;
+      toast("Successfully login");
       setUser(user);
       navigate(from, { replace: true });
       // ...
@@ -84,6 +87,7 @@ providerLogin(githubProvider)
     </Form>
     <Button onClick={handlegoogleProvider} className='mt-4' variant="outline-secondary">Signin Google</Button>
     <Button onClick={handleGithub} className='mt-4' variant="outline-secondary">Signin Github</Button>
+    <ToastContainer/>
         </div>
     );
 };
