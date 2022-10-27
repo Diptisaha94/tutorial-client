@@ -1,9 +1,13 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const Primeum = () => {
+    const premiumData =useLoaderData();
+    console.log(premiumData);
+    const{title}=premiumData;
     return (
-        <div>
-            <h1>Go to premium</h1>
+        <div className='container mt-5'>
+            <h1>{title}</h1>
         </div>
     );
 };
