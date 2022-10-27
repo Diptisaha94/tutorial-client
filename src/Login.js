@@ -4,7 +4,9 @@ import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useLocation, useNavigate} from 'react-router-dom';
+import { BsGithub } from "react-icons/bs";
 import { AuthContext } from './AuthProvider';
+import { FcGoogle } from "react-icons/fc";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 
@@ -85,8 +87,8 @@ providerLogin(githubProvider)
         Submit
       </Button>
     </Form>
-    <Button onClick={handlegoogleProvider} className='mt-4' variant="outline-secondary">Signin Google</Button>
-    <Button onClick={handleGithub} className='mt-4' variant="outline-secondary">Signin Github</Button>
+    <Button onClick={handlegoogleProvider} className='mt-4' variant="outline-secondary"><FcGoogle/> Signin Google</Button>
+    <Button onClick={handleGithub} className='mt-4' variant="outline-secondary"><BsGithub/> Signin Github</Button>
     <ToastContainer/>
         </div>
     );
