@@ -21,12 +21,12 @@ Learning Platform</h1>
                 <Col lg="6">
                 <h5 className='text-primary mt-5'>WHY CHOOSE US</h5>
                 <h1>Let's Get Started Your Carrer With Acadu Education</h1>
-                <p className='text-white'>Whether you know exactly where you're heading, or you're still planning your next steps, it all starts with a simple conversation. Let's talk.</p>
+                <p className=''>Whether you know exactly where you're heading, or you're still planning your next steps, it all starts with a simple conversation. Let's talk.</p>
                 <Link to="/register"><button className='btn btn-primary mt-4'>Register Now <FiArrowRight/></button></Link>
                 </Col>
             </Row>
         </div>
-        <div className="bg-img py-3 d-flex justify-content-between mt-5">
+        <div className="bg-img py-3 d-lg-flex justify-content-between mt-5 ">
             <div className="ms-4 mt-4">
         <h2 className='mb-4 text-white'>Find Your Best Course With Us</h2>
         <p>An online coding school that invests in you. No tuition until you're hired. Terms apply. BloomTech is designed to accelerate your path to a well paying job. Get started today!</p>

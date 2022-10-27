@@ -8,7 +8,7 @@ const Onecourses = () => {
     const {image,title,catagory_id,_id,discripetion}=coursesDetailData;
     return (
         <div className='container mt-5'>
-            <div className="d-flex justify-content-between">
+            <div className="d-lg-flex justify-content-between">
             <h5 className="card-title fs-3 mb-3">{title}</h5>
             <Button type="button" class="btn btn-primary">Download Pdf</Button>
             </div>
