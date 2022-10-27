@@ -48,12 +48,8 @@ const router = createBrowserRouter([
                 element:<Faq></Faq>
             },
             {
-                path:"/cheakout",
-                element:<Privateroute><Primeum></Primeum></Privateroute>,
-            },
-            {
                 path:"/cheakout/:id",
-                element:<Primeum></Primeum>,
+                element:<Privateroute><Primeum></Primeum></Privateroute>,
                 loader: ({params}) => {
                     return fetch(`https://tutorial-server-bice.vercel.app/cheakout/${params.id}`)
                   },
