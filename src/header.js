@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { useContext } from 'react';
 import { AuthContext } from './AuthProvider';
 import { Button, Image } from 'react-bootstrap';
-import { FaUserCircle } from 'react-icons/fa';
+import { FaBuffer } from 'react-icons/fa';
 import { useState } from 'react';
 
 const Header = () => {
@@ -19,15 +19,16 @@ const Header = () => {
     .catch()
   }
     return (
-      <Navbar bg="light" expand="lg">
+      <Navbar className='back' expand="lg">
       <Container>
-        <Link to={"/blog"}>React-Bootstrap</Link>
+        <FaBuffer className='fs-2'></FaBuffer>
+        <Link className='text-decoration-none fs-3' to={"/"}>TechBd</Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
           <Nav className='align-items-center'>
-            <Link className='me-4' to={"/courses"}>Courses</Link>
-            <Link className='me-4' to={"/blog"}>Blog</Link>
-            <Link className='me-4' to={"/faq"}>FAQ</Link>
+            <Link className='me-4 text-decoration-none' to={"/courses"}>Courses</Link>
+            <Link className='me-4 text-decoration-none' to={"/blog"}>Blog</Link>
+            <Link className='me-4 text-decoration-none' to={"/faq"}>FAQ</Link>
             {
               theme?<Button className='btn btn-dark'></Button>:<Button className='btn btn-light'></Button>
             }

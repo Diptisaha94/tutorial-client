@@ -10,7 +10,7 @@ const Home = () => {
     return (
         <>
         <div className='banner-img pb-5 pt-5'>
-           <h1 className='fs-1 text-center'>Welcome To Our Online<br/>
+           <h1 className='fs-1 text-center text-white'>Welcome To Our Online<br/>
 Learning Platform</h1>
         </div>
         <div className="mt-5 container bg-light px-5">
@@ -21,7 +21,8 @@ Learning Platform</h1>
                 <Col lg="6">
                 <h5 className='text-primary mt-5'>WHY CHOOSE US</h5>
                 <h1>Let's Get Started Your Carrer With Acadu Education</h1>
-                <p>Whether you know exactly where you're heading, or you're still planning your next steps, it all starts with a simple conversation. Let's talk.</p>
+                <p className='text-white'>Whether you know exactly where you're heading, or you're still planning your next steps, it all starts with a simple conversation. Let's talk.</p>
+                <Link to="/register"><button className='btn btn-primary mt-4'>Register Now <FiArrowRight/></button></Link>
                 </Col>
             </Row>
         </div>

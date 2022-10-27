@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "./Blog";
 import Courses from "./Courses";
+import Errorpage from "./Errorpage";
 import Faq from "./Faq";
 import Home from "./Home";
 import Login from "./Login";
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
     {
         path:"/",
         element:<Main></Main>,
+        errorElement:<Errorpage></Errorpage>,
         children:[
             {
                 path:"/",
@@ -36,7 +38,7 @@ const router = createBrowserRouter([
                         path:"/courses/:id",
                         element:<Singlecourses></Singlecourses>,
                         loader: ({params}) => {
-                            return fetch(`http://localhost:5000/catagory/courses/${params.id}`)
+                            return fetch(`https://tutorial-server-bice.vercel.app/catagory/courses/${params.id}`)
                           },
                     },
                 ]
@@ -53,7 +55,7 @@ const router = createBrowserRouter([
                 path:"/detail/course/:id",
                 element:<Onecourses></Onecourses>,
                 loader: ({params}) => {
-                    return fetch(`http://localhost:5000/courses/${params.id}`)
+                    return fetch(`https://tutorial-server-bice.vercel.app/courses/${params.id}`)
                   },
             },
             {

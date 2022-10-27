@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Catagory = () => {
     const [courses,setCourses]=useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/catagory')
+        fetch('https://tutorial-server-bice.vercel.app/catagory')
         .then(response => response.json())
   .then(data => setCourses(data))
     },[])
@@ -14,7 +14,7 @@ const Catagory = () => {
         <div>
             {
                     courses.map((course)=><p key={course.id}>
-                        <Link to={`/courses/${course.id}`}>{course.name}</Link>
+                        <Link className='text-decoration-none fs-5' to={`/courses/${course.id}`}>{course.name}</Link>
                     </p>)
                 }
         </div>
