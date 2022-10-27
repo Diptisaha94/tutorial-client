@@ -12,7 +12,7 @@ import { useState } from 'react';
 const Header = () => {
   const userInfo = useContext(AuthContext);
   const {user,logOut}=userInfo;
-  const [theme,setTheme]=useState(true);
+  const [theme,setTheme]=useState(false);
   const handleSignOut =()=>{
     logOut()
     .then()
@@ -27,12 +27,17 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
           <Nav className='align-items-center'>
             <Link className='me-4 text-decoration-none' to={"/courses"}>Courses</Link>
-            <Link className='me-4 text-decoration-none' to={"/blog"}>Blog</Link>
+            <Link className='me-4 text-decoration-none' to={"/public"}>Blog</Link>
             <Link className='me-4 text-decoration-none' to={"/faq"}>FAQ</Link>
-            {
-              theme?<Button className='btn btn-dark'></Button>:<Button className='btn btn-light'></Button>
-            }
-            <span className='me-4'>{user?.photoURL&& user?.displayName ?<Image title={user.displayName} style={{height:'40px',borderRadius:"50%"}} src={user.photoURL}></Image>:
+            
+              <div onClick={()=>setTheme(!theme)}>
+              {
+                theme?<Button className='btn btn-dark'></Button>:<Button className='btn btn-light'></Button>
+              }
+              </div>
+              
+            
+            <span className='me-4 ms-4'>{user?.photoURL&& user?.displayName ?<Image title={user.displayName} style={{height:'40px',borderRadius:"50%"}} src={user.photoURL}></Image>:
             null
             }</span>
             <span>
