@@ -12,3 +12,6 @@
 .bg-img{
     background-color: rgba(0, 0, 139, 0.842);
 }
+.card-img{
+    height: 300px;
+}

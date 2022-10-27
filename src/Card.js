@@ -8,7 +8,7 @@ const Card = ({card}) => {
             <div className="card" style={{width:"18rem"}}>
   <img style={{height:"300px"}} src={card.image} className="card-img-top" alt="..."/>
   <div className="card-body">
-    {/* <h5 className="card-title">{card.title}</h5> */}
+    <h5 className="card-title">{card.head}</h5>
   </div>
   <Link to={`/detail/course/${card._id}`} className='btn btn-primary'>Start Tutoial</Link>
 </div>

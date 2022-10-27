@@ -46,7 +46,7 @@ const router = createBrowserRouter([
                 element:<Faq></Faq>
             },
             {
-                path:"/premium",
+                path:"/cheakout",
                 element:<Privateroute><Primeum></Primeum></Privateroute>
             },
             {

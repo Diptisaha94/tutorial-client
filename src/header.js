@@ -7,11 +7,12 @@ import { useContext } from 'react';
 import { AuthContext } from './AuthProvider';
 import { Button, Image } from 'react-bootstrap';
 import { FaUserCircle } from 'react-icons/fa';
+import { useState } from 'react';
 
 const Header = () => {
   const userInfo = useContext(AuthContext);
   const {user,logOut}=userInfo;
-  const navigate=useNavigate();
+  const [theme,setTheme]=useState(true);
   const handleSignOut =()=>{
     logOut()
     .then()
@@ -27,8 +28,11 @@ const Header = () => {
             <Link className='me-4' to={"/courses"}>Courses</Link>
             <Link className='me-4' to={"/blog"}>Blog</Link>
             <Link className='me-4' to={"/faq"}>FAQ</Link>
+            {
+              theme?<Button className='btn btn-dark'></Button>:<Button className='btn btn-light'></Button>
+            }
             <span className='me-4'>{user?.photoURL&& user?.displayName ?<Image title={user.displayName} style={{height:'40px',borderRadius:"50%"}} src={user.photoURL}></Image>:
-            <FaUserCircle className='fs-2'></FaUserCircle>
+            null
             }</span>
             <span>
               {user && user.uid?<Button onClick={handleSignOut}>Sign Out</Button>:<Link to={'/login'}><Button>Login</Button></Link>}
